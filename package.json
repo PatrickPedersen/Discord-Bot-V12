@@ -1,0 +1,23 @@
+{
+  "name": "dis-bot-v12",
+  "version": "0.0.6",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "common-tags": "^1.8.0",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "moment": "^2.27.0",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.25",
+    "ms": "^2.1.2",
+    "path": "^0.12.7"
+  }
+}
