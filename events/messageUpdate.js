@@ -5,8 +5,11 @@ module.exports = (client, newMessage, oldMessage) => {
     if (newMessage.author.bot) return;
     if (newMessage.channel.type !== 'text') return;
 
-    if (client.config.messageupdatelog === true) {
-        const messageChannel = client.channels.get(client.config.messageupdatelogchannel);
+    if (client.getGuild(newMessage.guild.id, 'messageupdatelog') === 'true') {
+        const guildSettings = client.getGuild(newMessage.guild.id);
+        console.log(guildSettings);
+
+        const messageChannel = client.getGuild(newMessage.guild.id);
         if (!messageChannel) return;
         if (oldMessage.cleanContent !== newMessage.cleanContent) {
             const embed = new MessageEmbed()
@@ -23,4 +26,4 @@ module.exports = (client, newMessage, oldMessage) => {
             });
         }
     }
-}
+};

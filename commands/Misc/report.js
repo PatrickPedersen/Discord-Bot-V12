@@ -24,7 +24,7 @@ module.exports.help = {
     aliases: [],
     description: 'Reports a user',
     usage: "<user> <reason>",
-    category: "Member",
+    category: "Misc",
     guildOnly: true,
     args: true,
     accessableby: 'Member',

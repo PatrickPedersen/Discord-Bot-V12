@@ -52,7 +52,7 @@ const load = (dir = "./commands/") => {
 load();
 
 require("./util/eventHandler")(bot);
-require("./util/functions")(bot)
+require("./util/clientFunctions")(bot);
 bot.mongoose = require("./util/mongoose");
 
 bot.on("message", async message => {
@@ -73,7 +73,7 @@ bot.on("message", async message => {
 
     if (command.help.accessableby === "Owner" && message.author.id != bot.config.creatorId) return message.channel.send("This command is only for the owner of the bot!");
     if (command.help.accessableby === "Developer" && message.author.id != bot.config.developers) return message.channel.send("This command is only for Developers!");
-    if (command.help.accessableby === 'Administrator' && (!message.member.permissions.has("ADMINISTRATOR") || !message.member.guild.ownerID)) return message.channel.send("You don't have Administrator access!")
+    if (command.help.accessableby === 'Administrator' && (!message.member.permissions.has("ADMINISTRATOR") || !message.member.guild.ownerID)) return message.channel.send("You don't have Administrator access!");
 
     if (command.help.guildOnly && message.channel.type !== 'text') {
         return message.reply('I can\'t execute that command inside DMs!');

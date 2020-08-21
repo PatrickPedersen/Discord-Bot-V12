@@ -1,5 +1,4 @@
 const { prefix } = require("../../config.json");
-const fs = require('fs')
 
 module.exports.run = async (bot, message, args) => {
 
@@ -37,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
         log_chatfilterdeleted: "All messages deleted by the chatfilter will no longer be logged!",
         log_error: "That event doesn't exist. You can check all events that you can log with %prefixlistevents",
         log_description: "Allows you to log for different channels, different events. The command %prefixlistevents will give you a list of all events"
-    }
+    };
 
     const validation = ['chatfilter', 'modlog', 'messagedelete', 'messageupdate', 'channelupdate', 'channelcreate', 'channeldelete', 'memberupdate', 'presenceupdate', 'userjoin', 'userleft', 'rolecreate', 'roledelete', 'roleupdate', 'guildupdate'];
     const content = args.slice().join(' ');
@@ -49,27 +48,35 @@ module.exports.run = async (bot, message, args) => {
     for (let i = 0; i < margs.length; i += 1) {
         if (validation.indexOf(margs[i].toLowerCase()) >= 0) {
             if (margs[1].toLowerCase() === 'messagedelete') {
-                if (message.client.config.messagedellog === false) {
-                    margs[2] = bot.config.messagedellogchannel;
-                    bot.config.messagedellog = true;
+                if (await bot.getGuild(message.guild.id, 'messagedellog') === 'false') {
+                    await bot.updateGuild(message.guild.id, 'messagedellogchannel', message.channel.id);
+                    await bot.updateGuild(message.guild.id, 'messagedellog', 'true');
+
+                    console.log("Inside")
 
 
                     const messagedeleteset = lang.log_messagedeleteset.replace('%channelname', `**#${message.channel.name}**`);
                     return message.channel.send(messagedeleteset);
                 }
-                bot.config.messagedellog = false;
+                await bot.updateGuild(message.guild.id, 'messagedellog', 'false');
+
+                console.log("Outside")
 
                 return message.channel.send(lang.log_messagedeletedeleted);
             }
             if (margs[1].toLowerCase() === 'messageupdate') {
-                if (message.client.config.messageupdatelog === false) {
-                    margs[2] = bot.config.messageupdatelogchannel;
-                    bot.config.messageupdatelog = true;
+                if (await bot.getGuild(message.guild.id, 'messageupdatelog') === 'false') {
+                    await bot.updateGuild(message.guild.id, 'messageupdatelogchannel', message.channel.id);
+                    await bot.updateGuild(message.guild.id, 'messageupdatelog', 'true');
+
+                    console.log("Inside")
 
                     const messageupdateset = lang.log_messageupdateset.replace('%channelname', `**#${message.channel.name}**`);
                     return message.channel.send(messageupdateset);
                 }
-                bot.config.messagedellog = false;
+                await bot.updateGuild(message.guild.id, 'messagedellog', 'false');
+
+                console.log("Outside")
 
                 return message.channel.send(lang.log_messageupdatedeleted);
             }

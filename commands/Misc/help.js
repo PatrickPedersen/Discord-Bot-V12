@@ -47,15 +47,12 @@ module.exports.run = (bot, message, args) => {
     ].join("\n"));
 
     let categories = readdirSync("./commands/");
-    console.log(categories)
 
     const sortingArray = [ 'Moderator', 'Administrator', 'Developer', 'Owner' ];
 
     categories.sort(function(a, b){
         return sortingArray.indexOf(b) - sortingArray.indexOf(a);
     });
-
-    console.log(categories)
 
     categories.forEach(category => {
 
@@ -79,7 +76,7 @@ module.exports.run = (bot, message, args) => {
         if (category === "Moderator" && (message.member.permissions.has("MANAGE_ROLES"))) {
             embed.addField(`❯ ${capitalise}`, dir.map(c => `\`${c.help.name}\``).join(", "))
         }
-        console.log(category)
+
         if (category != "Owner" && category != "Developer" && category != "Administrator" && category != "Moderator") {
             embed.addField(`❯ ${capitalise}`, dir.map(c => `\`${c.help.name}\``).join(", "));
         }

@@ -1,0 +1,19 @@
+{
+  "owners": ["299192199843676171"],
+  "administrators": ["299192199843676171"],
+  "token": true,
+  "prefix": "?",
+  "db": {
+    "user": "root",
+    "password": "root",
+    "host": "localhost",
+    "port": "27017"
+  },
+  "botMainDiscordServer": "565959084990267393",
+  "log_channels": {
+    "logs": "745575269909266484",
+    "warnings": "745575316843528282",
+    "errors": "745575369653878927"
+  },
+  "NODE_ENV": "production"
+}
