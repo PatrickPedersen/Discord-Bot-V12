@@ -32,10 +32,4 @@ module.exports = client => {
         client.user.setActivity(status, { type: "WATCHING" })
             .catch(console.error);
     }, 5000);
-
-    //Get Uptime and write to status.json
-    setInterval(function () {
-        let uptime = duration(client.uptime);
-        console.log(uptime);
-    }, 30000);
 };
