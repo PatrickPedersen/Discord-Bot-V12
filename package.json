@@ -2,13 +2,12 @@
   "name": "dis-bot-v12",
   "version": "0.0.6",
   "description": "",
-  "main": "index.js",
+  "main": "devbot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node devbot.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["Discord","Bot","Discord.js","Javascript","Node"],
+  "author": "Patrick Pedersen",
   "dependencies": {
     "chalk": "^4.1.0",
     "common-tags": "^1.8.0",
