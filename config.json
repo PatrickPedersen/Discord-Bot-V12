@@ -1,13 +1,13 @@
 {
-    "creatorId": "299192199843676171",
+    "creatorId": "Your Discord User ID",
 
-    "developers": ["299192199843676171"],
+    "developers": ["Your Discord User ID"],
 
     "version": "0.2.0",
     "library": "Discord.js",
-    "Creator": "[BWC] Patrick#8788",
-    "website": "https://the-bwc.com",
-    "discord": "https://the-bwc.com/invite",
+    "Creator": "Your Username",
+    "website": "Your Website",
+    "discord": "Discord Server Invite Link",
     "defaultSettings": {
         "prefix": "?",
 
